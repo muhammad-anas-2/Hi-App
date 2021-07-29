@@ -6,23 +6,20 @@
     Messages
   </a>
 </div>
-<div class="right menu">
-  <div class="ui dropdown item">
-    Account <i class="dropdown icon"></i>
-    <div class="menu">
-      <a class="item">English</a>
-      <a class="item">Russian</a>
-      <a class="item">Spanish</a>
-    </div>
-  </div>
 
   <div class="item">
 
-      <%= link_to 'Login',  login_path, class: 'ui primary button'%>
+    <% if logged_in? %>
+      <%= link_to "Logout",logout_path, method: :delete, class: "ui primary button" %>
+    <% else %>
+
+    <% end %>
 
   </div>
 
+  <% if !logged_in? %>
   <div class="item">
-    <div class="ui primary button">Sign Up</div>
+    <%= link_to "Log in", login_path, class: "ui primary button" %>
   </div>
+    <%end %>
 </div>

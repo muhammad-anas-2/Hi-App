@@ -12,11 +12,18 @@ import '@doabit/semantic-ui-sass/src/scss/semantic-ui.scss'
 
 require("semantic-ui-sass")
 
+$(document).on('turbolinks:load', function() {
+    $('.ui.dropdown').dropdown();
+    $('.message .close').on('click', function() {
+        $(this).closest('.message').transition('fade');
+    });
+})
+
 
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(document).on("turbolinks:load", () => $(".ui.dropdown").dropdown());
+
 
